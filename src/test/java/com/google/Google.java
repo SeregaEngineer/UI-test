@@ -8,7 +8,9 @@ import org.testng.annotations.Test;
 
 import javax.swing.text.Element;
 
+import static com.codeborne.selenide.CollectionCondition.size;
 import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
 
 public class Google {
@@ -16,14 +18,14 @@ public class Google {
     public void beforeTest() {
         GooglePageSearch google = new GooglePageSearch();
         google.searchGoogle("Открытие");
-        ElementsCollection result = $$(By.className("bkWMgd"));
-        //$$(By.className("bkWMgd")).shouldHave(("https://www.open.ru/"));
+        GooglePageResults results = new GooglePageResults();
+        results.searchResult().shouldHave(size(6));
+        results.getResult(1).shouldHave(text("www.open.ru")).click();
 
-       // $(By.name("q")).val("selenide").pressEnter();
-       // $$("#res .g").shouldHave(sizeGreaterThan(1));
-       /* $("#res .g").shouldBe(visible).shouldHave(
-                text("Selenide: concise UI tests in Java"),
-                text("selenide.org"));   */
+
+
+
+
     }
 
 
