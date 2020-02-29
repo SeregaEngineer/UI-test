@@ -12,12 +12,13 @@ public class GooglePageResults {
 
     public ElementsCollection searchResult() {
 
-        return $$(By.className("bkWMgd"));
+        return $$(By.className("g"));
     }
 
 
     public SelenideElement getResult(int index) {
 
-        return $("div.r > a", index);
+        return $(" div > div.r", index);
+        //return $(By.className("iUh30 tjvcx"));
     }
 }
