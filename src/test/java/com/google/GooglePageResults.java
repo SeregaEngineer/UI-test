@@ -19,6 +19,6 @@ public class GooglePageResults {
     public SelenideElement getResult(int index) {
 
         return $(" div > div.r", index);
-        //return $(By.className("iUh30 tjvcx"));
+
     }
 }
