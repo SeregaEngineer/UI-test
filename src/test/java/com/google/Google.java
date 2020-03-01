@@ -1,21 +1,13 @@
 package com.google;
 
-import com.codeborne.selenide.ElementsCollection;
-
-import org.openqa.selenium.By;
-import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import java.text.DecimalFormat;
-
 import static com.codeborne.selenide.CollectionCondition.size;
-
 import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Condition.type;
 import static com.codeborne.selenide.Selenide.*;
-import static java.lang.Float.floatToIntBits;
 import static java.lang.Float.parseFloat;
+
 
 public class Google {
     @BeforeMethod
@@ -23,11 +15,11 @@ public class Google {
         GooglePageSearch google = new GooglePageSearch();
         google.searchGoogle("Открытие");
         GooglePageResults results = new GooglePageResults();
-        results.searchResult().shouldHave(size(7));
+        results.searchResult().shouldHave(size(9));
         results.getResult(0).shouldHave(text("www.open.ru")).click();
 
 
-        }
+    }
 
 
     @Test
